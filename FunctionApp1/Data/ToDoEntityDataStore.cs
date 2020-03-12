@@ -25,7 +25,7 @@ namespace FunctionApp1.Data
             }
 
             var query =
-                "INSERT INTO ToDos (Id, Object, CreatedOn, ToDoId, Status, Description) VALUES (@Id, @Object, @CreatedOn, @ToDoId, @Status, @Description)";
+                "INSERT INTO ToDos (Id, Status, Description, CreatedOn) VALUES (@Id, @Status, @Description, @CreatedOn)";
 
             using (var cn = new SqlConnection(_entityDataStoreOptions.ConnectionString))
             {
@@ -41,7 +41,7 @@ namespace FunctionApp1.Data
                     cmd.Parameters.AddWithValue("@Description", entity.Description);
                     cmd.Parameters.AddWithValue("@CreatedOn", entity.CreatedOn);
 
-                    await cmd.ExecuteNonQueryAsync();
+                    await cmd.ExecuteNonQueryAsync(); // NOTE : What error is thrown with bad access token
                 }
             }
         }

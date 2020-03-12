@@ -28,14 +28,7 @@ namespace ClassLibrary1
             var expiresOn =
                 this.ConvertEpochToDateTime(epoch);
 
-            // expires On | current Time  | adjusted Expires On | token          | return
-            // -----------------------------------------------------------------------------
-            // 3:30 PM    |  2:30 PM      | 3:20 PM             | good token     | true
-            // 3:30 PM    |  3:25 PM      | 3:20 PM             | expired token  | false
-            // 3:30 PM    |  3:20 PM      | 3:20 PM             | expired token  | false
-            // 3:30 PM    |  3:19 PM      | 3:20 PM             | good token     | true
-
-            if (DateTime.UtcNow < expiresOn.AddMinutes(-10))
+            if (DateTime.UtcNow >= expiresOn)
             {
                 return true;
             }

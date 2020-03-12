@@ -25,3 +25,16 @@ GO
 ```
 
 
+## Azure
+
+Create an Azure AD group.
+
+```
+az ad group create --display-name mattruma-045-sqldbs --mail-nickname mattruma-045-sqldbs
+```
+
+Add App Registration/Service Principal to the Azure AD Group
+
+```
+az ad group member add --group GROUP_ID --member-id MEMBER_ID_
+```

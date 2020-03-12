@@ -1,5 +1,4 @@
-﻿using ClassLibrary1;
-using ClassLibrary1.Helpers;
+﻿using ClassLibrary1.Helpers;
 using FunctionApp1.Data;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,8 +34,8 @@ namespace FunctionApp1
                 };
 
             services.AddSingleton(azureTokenProviderOptions);
+            services.AddSingleton<IAzureTokenProvider, AzureTokenProvider>();
 
-            services.AddTransient<IAzureTokenProvider, AzureTokenProvider>();
             services.AddTransient<IToDoEntityDataStore, ToDoEntityDataStore>();
         }
     }
