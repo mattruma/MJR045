@@ -1,11 +1,4 @@
-## Database
-
-Create a SQL Server database in Azure.
-
-Execute the following script to create the `ToDos` table:
-
-```
-SET ANSI_NULLS ON
+﻿SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
@@ -22,4 +15,3 @@ CREATE TABLE [dbo].[ToDos](
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-```
